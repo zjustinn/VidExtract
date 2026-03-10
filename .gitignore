@@ -1,0 +1,11 @@
+__pycache__/
+build/
+dist/
+Download/
+installer/Output/
+ytenv/
+ui/__pycache__/
+ffmpeg.exe
+ffprobe.exe
+main.spec
+ytdownload.py
