@@ -10,6 +10,10 @@ import threading
 import sys
 from ui.main_window import MainWindow
 
+if sys.platform == "win32":
+    import multiprocessing
+    multiprocessing.freeze_support()
+
 
 def auto_update_ytdlp(callback):
     """Check PyPI and update yt-dlp if outdated."""
@@ -27,9 +31,17 @@ def auto_update_ytdlp(callback):
 
         if installed != latest:
             callback(f"🔄 Updating yt-dlp {installed} → {latest}...")
+
+            # Windows: CREATE_NO_WINDOW prevents spawning visible console windows
+            kwargs = {}
+            if sys.platform == "win32":
+                import subprocess
+                kwargs["creationflags"] = subprocess.CREATE_NO_WINDOW
+
             subprocess.run(
                 [sys.executable, "-m", "pip", "install", "-U", "yt-dlp", "-q"],
-                check=True
+                check=True,
+                **kwargs
             )
             callback(f"✅ yt-dlp updated to {latest}")
         else:

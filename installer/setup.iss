@@ -1,5 +1,5 @@
 #define MyAppName "VidExtract"
-#define MyAppVersion "1.0"
+#define MyAppVersion "0.1.0"
 
 [Setup]
 AppName={#MyAppName}
@@ -9,7 +9,7 @@ DefaultGroupName=VidExtract
 OutputBaseFilename=VidExtract_setup
 Compression=lzma
 SolidCompression=yes
-SetupIconFile="..\vidextract.ico"
+SetupIconFile=assets\vidextract.ico
 
 [Files]
 
