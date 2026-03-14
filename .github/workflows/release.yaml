@@ -28,7 +28,7 @@ jobs:
 
       - name: Build EXE
         run: |
-          pyinstaller --onefile --windowed --icon vidextract.png main.py
+          pyinstaller --onefile --windowed --icon assets/vidextract.ico main.py
 
       - name: Install Inno Setup
         run: |
